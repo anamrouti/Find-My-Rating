@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Google Maps App</title>
+        <meta name= "viewport" content="width=device-width, initial-scale= 1.0" />
+        <meta name="description" content="Google Maps API App">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"
+            media="screen" title="no-title" charset="utf-8">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    </head>
+    <body>
+        <main class="container">
+            <p class="description"><h2>App Description:</h2>This App uses Google Maps API Requests to search for any given category of business or location type then displays the results to a Map using MAPS API</p>
+            <form id="user-input" class="js-user-input">
+                <label for="location-type">What type of business/location would you like to search?</label>
+                <input type="text" id="location-input" class="js-location" placeholder="Restaurants, hotels, parks">
+                <button type="submit" id="input-button" class="button submit">Search Locations!</button>
+            </form>
+
+            <section id="results" class="hidden">
+                <h3>Here's what we found:</h3>
+                <div id="map"></div>
+            </section>
+        </main>
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+            async defer></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" 
+            crossorigin="anonymous"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
