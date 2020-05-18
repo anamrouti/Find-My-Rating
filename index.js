@@ -1,6 +1,6 @@
 'use strict';
 
-const apiKey = ''
+const apiKey = 'AIzaSyBnc0C8rvojZTSaXNt-ODa2lC56ULzLdIk'
 const searchURL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
 
 function formatQueryParams(params){
