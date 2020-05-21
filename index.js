@@ -1,44 +1,70 @@
 'use strict';
 
-const apiKey = 'AIzaSyBnc0C8rvojZTSaXNt-ODa2lC56ULzLdIk'
+const api_key = 'AIzaSyC-aN_OwNSOHHi068jAmbopsItbsZ6PWPE';
 const searchURL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
 
 function formatQueryParams(params){
-    const queryItems = object.keys(params)
-        .map(key => '${encodedURIComponent(key)}=${encodeURIComponent(params[key])}')
+    const queryItems = Object.keys(params)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
 }
 
 function getLink(query, key){
     const params = {
-        key : apiKey,
-        q : query
+        query: $("#location-input").val() + ' ' + $('#address').val() ,
+        key : api_key,
+        
     };
 
     const queryString = formatQueryParams(params)
     const url = searchURL + '?' + queryString;
 
-    fetch(url)
-        .then(response => {
-            if(response.ok){
-                return response.json();
-            }
-            throw new Error(response.statusText);
-            $('.results').removeClass('hidden');
-        })
-        .then(responseJson => console.log(JSON.stringify(responseJson)))
-        .catch(err => {
-            $('.results').append('alert(Search did not return any results.)');
-        })
+    fetch(url, {mode: "no-cors"})
+    .then(response => response.json())
+    .then(responseJson => console.log(responseJson));
+    
+    
+    
+}
+
+function displayResults(responseJson){
+   
+    console.log(responseJson);
+
+    
+    
+    initMap();
+
+    $('#results').removeClass('hidden');
+    
 }
 
 function watchForm(){
     $('form').submit(event => {
         event.preventDefault();
         const searchQuery = $('.location-input').val();
-        const key = apiKey;
+        const key = api_key;
         getLink(searchQuery, key);
+        
     });
 }
 
 $(watchForm);
+
+function initMap(){
+    //const myLocation = $('.initial-location-js').val();
+    //var myLatLng = new google.maps.LatLng();
+    
+    //var mapOptions = {
+        //center: myLatLng,
+        //zoom: 5
+    //}
+    
+    //var map = new google.maps.Map(document.getElementById('map'), mapOptions) ;
+
+    
+    //}
+    //marker.setMap(map);
+}
+
+    
