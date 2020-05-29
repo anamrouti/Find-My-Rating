@@ -15,13 +15,14 @@
             <p class="description"><h2>App Description:</h2>This App uses Google Maps API Requests to search for any given category of business or location type then displays the results to a Map using MAPS API</p>
             <form id="user-input" class="js-user-input">
                 <label for="location-type">Input a location type and where you would like to search.</label>
-                <input type="text" id="address" class="js-location" placeholder="Restaurants in New York" required>
+                <input type="text" id="address" class="js-location" placeholder="Ex: Restaurants in New York" required>
                 <button type="submit" id="input-button" class="button submit">Search Locations!</button>
             </form>
 
             <section id="results">
                 <h3>Here's what we found:</h3>
                 <div id="map"></div>
+                <ul id="results-list"></ul>
             </section>
         </main>
         
