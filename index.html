@@ -14,16 +14,20 @@
         <main class="container">
             <p class="description"><h2>App Description:</h2>This App uses Google Maps API Requests to search for any given category of business or location type then displays the results to a Map using MAPS API</p>
             <form id="user-input" class="js-user-input">
-                <label for="location-type">Input a location type and where you would like to search.</label>
-                <input type="text" id="address" class="js-location" placeholder="Ex: Restaurants in New York" required>
+                <label for="location-type">Input a location type you would like to search.</label>
+                <input type="text" id="address" class="js-location" placeholder="Ex: Restaurants, Hotels, Parks" required>
+                <label for="location-city">Select your city!</label>
+                <input type="text" id="city" class="js-location" placeholder="Ex: New York, Miami, Seattle" required>
                 <button type="submit" id="input-button" class="button submit">Search Locations!</button>
             </form>
 
-            <section id="results">
-                <h3>Here's what we found:</h3>
+            <section id="results" class= "results-display">
                 <div id="map"></div>
-                <ul id="results-list"></ul>
+
             </section>
+            <div id="weather">
+                <h4>Check the Weather before you travel!</h4>
+            </div>
         </main>
         
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" 

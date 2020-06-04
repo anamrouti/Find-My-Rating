@@ -9,31 +9,6 @@ function formatQueryParams(params){
     return queryItems.join('&');
 }
 
-function getLink(query, key, libraries){
-    const params = {
-        query: $('#address').val() ,
-        key : api_key,
-        libraries: "places",
-        
-    };
-
-    const queryString = formatQueryParams(params)
-    const url = searchURL + '?' + queryString;
-
-    fetch(url, {mode:'no-cors'})
-    .then(response => {
-        if (response.ok){
-            return response.json();
-        }
-        //throw new error(response.statusText);
-        (response.statusText);
-    })
-    .then(responseJson => console.log(JSON.stringify(responseJson)))
-    .then(responseJson => initMap(responseJson))
-    
-    
-    
-}
 
 
 function watchForm(){
@@ -41,18 +16,13 @@ function watchForm(){
         event.preventDefault();
         const searchQuery = $('#address').val();
         const key = api_key;
-        //getLink(searchQuery, key);
         initialize();
+        displayTemp();
     });
 }
-//var map;
-//var service;
 $(watchForm);
 
-//function initMap(results){
-    
-    
-//}
+
 
 var map;
 var service;
@@ -69,7 +39,7 @@ function initialize() {
     console.log(document.getElementById('map'));
 
   var request = {
-    query: $('#address').val()
+    query: $('#address').val() + ' ' + $('#city').val() 
   };
   infowindow = new google.maps.InfoWindow();
   service = new google.maps.places.PlacesService(map);
@@ -81,7 +51,7 @@ function callback(results, status) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
       createMarker(results[i]);
-      console.log(place);
+    
     }
     map.setCenter(results[0].geometry.location);
   }
@@ -99,5 +69,31 @@ function createMarker(place){
     infowindow.open(map, this);
   });
 }
+
+function displayTemp(city){
+  const myCity = $('#city').val();
+  const weatherKey = 'acbcdb86a642e30e3a31fe2645a474ea';
+
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${myCity}&appid=${weatherKey}`)
+  .then(response => {
+      if(response.ok){
+        return response.json()
+      }
+      throw new Error(response.statusText);
+    })
+  .then(responseJson => displayWeather(responseJson))
+  .catch(error => 'something went wrong, please try again later');
+}
+
+
+
+  function displayWeather(responseJson){
+    console.log(responseJson.name);
+    
+    $('#weather').append(` <p> Here's what the weather looks like now in ${responseJson.name}:
+    ${responseJson.main} currently: ${responseJson.description} 
+    ${responseJson.main.temp}</p> `);
+}
+
 
 

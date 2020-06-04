@@ -12,7 +12,7 @@
     display: none;
 }
 
-#map { width: 500px; height: 500px; padding: 20px 20px 40px;}
+#map { width: 800px; height: 500px; padding: 20px 20px 40px;}
 
 #results {
     background-color: gainsboro;
@@ -29,3 +29,8 @@
     text-align: center;
 }
 
+#results-display{
+    width:100%;
+    height:auto;
+
+}
