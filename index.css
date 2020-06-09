@@ -8,6 +8,14 @@
     padding: 20px 20px 20px;
 }
 
+#user-input {
+    display:block;
+    font-size:18px;
+    background-color: hotpink;
+    font-weight:4;
+    height:80px;
+    width:auto;
+}
 .hidden{
     display: none;
 }
@@ -15,8 +23,11 @@
 #map { width: 800px; height: 500px; padding: 20px 20px 40px;}
 
 #results {
-    background-color: gainsboro;
+    background-color: green;
     display:flex;
+    height:auto;
+    width:auto;
+    font-weight:3;
 }
 
 .description{
@@ -33,4 +44,11 @@
     width:100%;
     height:auto;
 
+}
+
+#weather{
+    height:100px;
+    width:auto;
+    font-weight:3;
+    background-color: indianred;
 }

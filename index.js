@@ -88,11 +88,9 @@ function displayTemp(city){
 
 
   function displayWeather(responseJson){
-    console.log(responseJson.name);
-    
-    $('#weather').append(` <p> Here's what the weather looks like now in ${responseJson.name}:
-    ${responseJson.main} currently: ${responseJson.description} 
-    ${responseJson.main.temp}</p> `);
+    console.log(responseJson.weather["main"]);
+    const unit = "imperial";
+    $('#weather-text').text(`Here's what the weather looks like now in ${responseJson.name}:`);
 }
 
 
