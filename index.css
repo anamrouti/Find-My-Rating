@@ -11,7 +11,7 @@
 #user-input {
     display:block;
     font-size:18px;
-    background-color: hotpink;
+    background-color: indianred;
     font-weight:4;
     height:80px;
     width:auto;
@@ -24,7 +24,6 @@
 
 #results {
     background-color: green;
-    display:flex;
     height:auto;
     width:auto;
     font-weight:3;
@@ -47,8 +46,73 @@
 }
 
 #weather{
-    height:100px;
+    height:200px;
     width:auto;
     font-weight:3;
     background-color: indianred;
+}
+
+#weather-text {
+    font-weight:5;
+    font-size:18px;
+}
+
+@media only screen and (max-width:440px){
+    .main{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    #map{
+        width:auto;
+        height:200px;
+
+    }
+
+    #weather{
+        width:auto;
+        height:150px;
+    }
+
+    #weather-text{
+        height:50px;
+        width:auto;
+        align-items:flex-start
+    }
+
+}
+
+@media only screen and(min-width:400px) and (max-width:1000px){
+    .main{
+        display:inline-flex;
+        flex-direction:row;
+        align-items:flex-start;
+        text-align:center;
+    }
+
+    #weather{
+        align-self:flex-end;
+    }
+}
+
+@media only screen and (min-width:1000px){
+    .main{
+        display:flex;
+        flex-direction:row;
+        align-items:left;
+        text-align:center;
+    }
+    #weather{
+        display:inline;
+        align-items:flex-end;
+        font-weight:5;
+    }
+    #map{
+        align-items:flex-start;
+        width:600px;
+        height:600px;
+        padding:20px 20px 60px;
+    }
 }

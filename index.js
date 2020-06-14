@@ -88,9 +88,10 @@ function displayTemp(city){
 
 
   function displayWeather(responseJson){
-    console.log(responseJson.weather);
+    console.log(responseJson.weather[0]);
     const unit = "imperial";
-    $('#weather-text').text(`Here's what the weather looks like now in ${responseJson.name}:`);
+    $('#weather-text').append(`<p>Here's what the weather looks like now in ${responseJson.name}:
+   ${responseJson.weather[0]['main']} </p><img src="http://openweathermap.org/img/wn/${responseJson.weather[0]['icon']}@2x.png"> `);
 }
 
 
