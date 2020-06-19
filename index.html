@@ -12,15 +12,16 @@
     </head>
     <body>
         <main class="container">
-            <p class="description"><h2>App Description:</h2>This App uses Google Maps API Requests to search for any given category of business or location type then displays the results to a Map using MAPS API</p>
-            <form id="user-input" class="js-user-input">
-                <label for="location-type">Input a location type you would like to search.</label>
-                <input type="text" id="address" class="js-location" placeholder="Ex: Restaurants, Hotels, Parks" required>
-                <label for="location-city">Select your city!</label>
-                <input type="text" id="city" class="js-location" placeholder="Ex: New York, Miami, Seattle" required>
-                <button type="submit" id="input-button" class="button submit">Search Locations!</button>
-            </form>
-
+            <section id="intro">
+                <p id="description"><h2>App Description:</h2>This App uses Google Maps API Requests to search for any given category of business or location type then displays the results to a Map using MAPS API</p>
+                <form id="user-input" class="js-user-input">
+                    <label for="location-type">Input a location type you would like to search.</label>
+                    <input type="text" id="address" class="js-location" placeholder="Ex: Restaurants, Hotels, Parks" required>
+                    <label for="location-city">Select your city!</label>
+                    <input type="text" id="city" class="js-location" placeholder="Ex: New York, Miami, Seattle" required>
+                    <button type="submit" id="input-button" class="button submit">Search Locations!</button>
+                </form>
+            </section>
             <section id="results" class= "results-display">
                 <div id="map"></div>
 

@@ -20,7 +20,7 @@
     display: none;
 }
 
-#map { width: 800px; height: 500px; padding: 20px 20px 40px;}
+#map { width: auto; height: 500px; padding: 20px 20px 40px;}
 
 #results {
     background-color: green;
@@ -51,40 +51,23 @@
     font-weight:3;
     background-color: indianred;
 }
-
-#weather-text {
-    font-weight:5;
-    font-size:18px;
-}
-
-@media only screen and (max-width:440px){
-    .main{
+.main {
         display:flex;
         flex-direction:column;
         align-items:center;
         text-align:center;
     }
 
-    #map{
-        width:auto;
-        height:200px;
-
-    }
-
-    #weather{
-        width:auto;
-        height:150px;
-    }
-
-    #weather-text{
+#weather-text {
         height:50px;
         width:auto;
-        align-items:flex-start
+        align-items:flex-start;
+        background-color: indianred;
     }
 
-}
 
-@media only screen and(min-width:400px) and (max-width:1000px){
+
+@media only screen and(min-width:440px) {
     .main{
         display:inline-flex;
         flex-direction:row;
@@ -92,22 +75,29 @@
         text-align:center;
     }
 
+    #map {
+        width:200px;
+        height:500px;
+    }
     #weather{
         align-self:flex-end;
     }
 }
 
-@media only screen and (min-width:1000px){
-    .main{
+@media only screen and (min-width:1000px) {
+    .container{
         display:flex;
         flex-direction:row;
-        align-items:left;
+        align-items:center;
         text-align:center;
+        max-width:1200px;
     }
     #weather{
-        display:inline;
+        display:block;
         align-items:flex-end;
         font-weight:5;
+        height:600px;
+        width:100%;
     }
     #map{
         align-items:flex-start;
@@ -115,4 +105,35 @@
         height:600px;
         padding:20px 20px 60px;
     }
+
+    #intro {
+        font-size:15px;
+        font-weight:3;
+        height:auto;
+        width:auto;
+        margin-right:10px;
+        margin-left:20px;
+        display:flex;
+        flex-direction:column;
+    }
+
+
+    #user-input {
+        align-self:flex-start;
+        align-content:space-between;
+        margin-left:20px;
+        margin-right:20px;
+        height:auto;
+    }
+
+    #address {
+        margin-top:40px;
+        margin-bottom:30px;
+    }
+
+    #city {
+        margin-top:40px;
+        margin-bottom:30px;
+    }
+
 }
