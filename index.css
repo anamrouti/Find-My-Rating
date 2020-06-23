@@ -49,8 +49,9 @@
 #weather{
     height:200px;
     width:auto;
-    font-weight:3;
+    font-weight:5;
     background-color: indianred;
+    font-size:24px;
 }
 .main {
         display:flex;
@@ -63,8 +64,12 @@
         height:50px;
         width:auto;
         align-items:flex-start;
-        background-color: indianred;
+        background-color:limegreen;
+        font-weight:5;
+        font-size:24px;
     }
+
+   
 
 
 
@@ -137,4 +142,7 @@
         margin-bottom:30px;
     }
 
+    .img {
+        background-color:limegreen;
+    }
 }
