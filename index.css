@@ -64,7 +64,6 @@
         height:50px;
         width:auto;
         align-items:flex-start;
-        background-color:limegreen;
         font-weight:5;
         font-size:24px;
     }
@@ -142,7 +141,5 @@
         margin-bottom:30px;
     }
 
-    .img {
-        background-color:limegreen;
-    }
+    
 }
