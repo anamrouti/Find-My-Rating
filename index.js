@@ -3,6 +3,7 @@
 const api_key = 'AIzaSyC-aN_OwNSOHHi068jAmbopsItbsZ6PWPE';
 const searchURL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
 
+//Creates the format of the request URL based on the params
 function formatQueryParams(params){
     const queryItems = Object.keys(params)
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
@@ -28,6 +29,7 @@ var map;
 var service;
 var infowindow;
 
+//initialize the map to selected location
 function initialize() {
   var pyrmont = new google.maps.LatLng(0, 0);
 
@@ -57,6 +59,7 @@ function callback(results, status) {
   }
 }
 
+//creates markers for returned locations
 function createMarker(place){
   var marker = new google.maps.Marker({
     map: map,
@@ -70,6 +73,7 @@ function createMarker(place){
   });
 }
 
+//creates request to OpenWeatherMap using corresponding city
 function displayTemp(city){
   const myCity = $('#city').val();
   const weatherKey = 'acbcdb86a642e30e3a31fe2645a474ea';
@@ -86,7 +90,7 @@ function displayTemp(city){
 }
 
 
-
+//displays results returned from OWM request
   function displayWeather(responseJson){
     console.log(responseJson.weather[0]);
     const unit = "imperial";
