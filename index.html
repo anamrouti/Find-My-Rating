@@ -6,14 +6,14 @@
         <meta name= "viewport" content="width=device-width, initial-scale= 1.0" />
         <meta name="description" content="Google Maps API App">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"
-            media="screen" title="no-title" charset="utf-8">
+            media="screen" title="no-title" content-type="utf-8">
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
     </head>
     <body>
         <main class="container">
             <section id="intro">
-                <p id="description"><h1>App Description:</h1>This App uses Google Maps API Requests to search for any given category of business or location type then displays the results to a Map using MAPS API. You will also find the weather for the selected city using the OpenWeatherMap API</p>
+                <h1>App Description:</h1><p id="description">This App uses Google Maps API Requests to search for any given category of business or location type then displays the results to a Map using MAPS API. You will also find the weather for the selected city using the OpenWeatherMap API</p>
                 <form id="user-input" class="js-user-input">
                     <label for="address" >Input a location type you would like to search.</label>
                     <input type="text" id="address" class="js-user-input" placeholder="Ex: Restaurants, Hotels, Parks" required>
@@ -23,6 +23,7 @@
                 </form>
             </section>
             <section id="results" class= "results-display">
+                <h3>Here's what we found on Google:</h3>
                 <div id="map"></div>
 
             </section>

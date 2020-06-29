@@ -1,5 +1,6 @@
 'use strict';
 
+
 const api_key = 'AIzaSyC-aN_OwNSOHHi068jAmbopsItbsZ6PWPE';
 const searchURL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
 
@@ -9,21 +10,6 @@ function formatQueryParams(params){
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
 }
-
-
-
-function watchForm(){
-    $('form').submit(event => {
-        event.preventDefault();
-        const searchQuery = $('#address').val();
-        const key = api_key;
-        initialize();
-        displayTemp();
-    });
-}
-$(watchForm);
-
-
 
 var map;
 var service;
@@ -75,10 +61,9 @@ function createMarker(place){
 
 //creates request to OpenWeatherMap using corresponding city
 function displayTemp(city){
-  const myCity = $('#city').val();
-  const weatherKey = 'acbcdb86a642e30e3a31fe2645a474ea';
+  
 
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${myCity}&appid=${weatherKey}`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${STORE[0].myCity}&appid=${STORE[0].weather_key}`)
   .then(response => {
       if(response.ok){
         return response.json()
@@ -92,13 +77,19 @@ function displayTemp(city){
 
 //displays results returned from OWM request
   function displayWeather(responseJson){
-    console.log(responseJson.weather[0]);
     $('#weather-text').empty();
-    const unit = "imperial";
-    
     $('#weather-text').append(`<p>Here's what the weather looks like now in ${responseJson.name}:
    ${responseJson.weather[0]['main']} </p><img src="http://openweathermap.org/img/wn/${responseJson.weather[0]['icon']}@2x.png"> `);
 }
 
 
-
+function watchForm(){
+    $('form').submit(event => {
+        event.preventDefault();
+        const searchQuery = $('#address').val();
+        const key = api_key;
+        initialize();
+        displayTemp();
+    });
+}
+$(watchForm);
