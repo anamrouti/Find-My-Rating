@@ -61,9 +61,10 @@ function createMarker(place){
 
 //creates request to OpenWeatherMap using corresponding city
 function displayTemp(city){
-  
+ const myCity = $('#city').val();
+  const weatherKey = 'acbcdb86a642e30e3a31fe2645a474ea';
 
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${STORE[0].myCity}&appid=${STORE[0].weather_key}`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${myCity}&appid=${weatherKey}`)
   .then(response => {
       if(response.ok){
         return response.json()
@@ -71,7 +72,7 @@ function displayTemp(city){
       throw new Error(response.statusText);
     })
   .then(responseJson => displayWeather(responseJson))
-  .catch(error => 'something went wrong, please try again later');
+  .catch(error => alert('Something went wrong, please try again later'));
 }
 
 
