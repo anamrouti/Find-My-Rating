@@ -25,11 +25,11 @@
 #map { width: auto; height: 500px; padding: 20px 20px 40px;}
 
 #results {
-    background-color: green;
+    background-color: rgb(6, 97, 6);
     height:auto;
     width:auto;
     font-weight:3;
-    color:white;
+    color:rgb(51, 4, 4);
 }
 
 .description{

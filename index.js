@@ -89,7 +89,10 @@ function generateWeatherText(responseJson){
 }
 //displays results returned from OWM request
   function displayWeather(responseJson){
+    $('#weather').removeClass('hidden');
+    
     $('#weather-text').empty();
+
     $('#weather-text').append(generateWeatherText(responseJson));
 }
 
