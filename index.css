@@ -16,7 +16,7 @@
     height:auto;
     width:100%;
     padding:0px 10px 20px 15px;
-    margin: 10px 10px 20px 20px;
+
 }
 .hidden{
     display: none;
@@ -29,6 +29,7 @@
     height:auto;
     width:auto;
     font-weight:3;
+    color:white;
 }
 
 .description{
@@ -48,7 +49,7 @@
 }
 
 #weather{
-    height:200px;
+    height:250px;
     width:auto;
     font-weight:5;
     background-color: indianred;
@@ -62,7 +63,7 @@
     }
 
 #weather-text {
-        height:100px;
+        height:200px;
         width:auto;
         align-items:flex-start;
         font-weight:5;
@@ -96,19 +97,21 @@
         flex-direction:row;
         align-items:center;
         text-align:center;
-        max-width:1200px;
+        width:1200px;
+        
     }
     #weather{
         display:block;
         align-items:flex-end;
         font-weight:5;
-        height:600px;
+        height:656px;
         width:100%;
-        margin-left:4
+        margin-right:20px;
+        margin-left:2px;
     }
     #map{
         align-items:flex-start;
-        width:600px;
+        width:480px;
         height:600px;
         padding:20px 20px 60px;
     }
@@ -142,5 +145,9 @@
         margin-bottom:30px;
     }
 
+    #input-button {
+        margin-top:40px;
+        margin-bottom:40px;
+    }
     
 }

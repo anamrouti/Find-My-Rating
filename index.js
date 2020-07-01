@@ -1,5 +1,11 @@
 'use strict';
 
+const STORE = {
+    map : null,
+    service : null,
+    infowindow : null,
+
+  }
 
 const api_key = 'AIzaSyC-aN_OwNSOHHi068jAmbopsItbsZ6PWPE';
 const searchURL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
@@ -11,27 +17,26 @@ function formatQueryParams(params){
     return queryItems.join('&');
 }
 
-var map;
-var service;
-var infowindow;
+//var map;
+//var service;
+//var infowindow;
 
 //initialize the map to selected location
 function initialize() {
   var pyrmont = new google.maps.LatLng(0, 0);
 
-  map = new google.maps.Map(document.getElementById('map'), {
+  STORE.map = new google.maps.Map(document.getElementById('map'), {
       center: pyrmont,
       zoom: 15
     });
-    console.log(map);
-    console.log(document.getElementById('map'));
+    
 
   var request = {
     query: $('#address').val() + ' ' + $('#city').val() 
   };
-  infowindow = new google.maps.InfoWindow();
-  service = new google.maps.places.PlacesService(map);
-  service.textSearch(request, callback);
+  STORE.infowindow = new google.maps.InfoWindow();
+  STORE.service = new google.maps.places.PlacesService(STORE.map);
+  STORE.service.textSearch(request, callback);
 }
 
 function callback(results, status) {
@@ -41,21 +46,21 @@ function callback(results, status) {
       createMarker(results[i]);
     
     }
-    map.setCenter(results[0].geometry.location);
+    STORE.map.setCenter(results[0].geometry.location);
   }
 }
 
 //creates markers for returned locations
 function createMarker(place){
   var marker = new google.maps.Marker({
-    map: map,
+    map: STORE.map,
     position: place.geometry.location
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name + ':' + place.formatted_address
+    STORE.infowindow.setContent(place.name + ':' + place.formatted_address
     + '. rated ' + place.rating + ' by ' + place.user_ratings_total + ' customers !');
-    infowindow.open(map, this);
+    STORE.infowindow.open(STORE.map, this);
   });
 }
 
@@ -72,15 +77,20 @@ function displayTemp(city){
       throw new Error(response.statusText);
     })
   .then(responseJson => displayWeather(responseJson))
-  .catch(error => alert('Something went wrong, please try again later'));
+  .catch(error => alert('Something went wrong, please use a valid input and try again'));
 }
 
 
+function generateWeatherText(responseJson){
+  return `<p>Here's what the weather looks like now in ${responseJson.name}:
+  ${responseJson.weather[0]['main']} </p>
+  <img src="http://openweathermap.org/img/wn/${responseJson.weather[0]['icon']}@2x.png" alt="weather icon"> `;
+  
+}
 //displays results returned from OWM request
   function displayWeather(responseJson){
     $('#weather-text').empty();
-    $('#weather-text').append(`<p>Here's what the weather looks like now in ${responseJson.name}:
-   ${responseJson.weather[0]['main']} </p><img src="http://openweathermap.org/img/wn/${responseJson.weather[0]['icon']}@2x.png"> `);
+    $('#weather-text').append(generateWeatherText(responseJson));
 }
 
 
